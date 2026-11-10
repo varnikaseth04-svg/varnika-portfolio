@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Varnika Seth | DRAFT TO FRAME Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0a0c10;
+      --card-bg: #12161f;
+      --border-color: rgba(255, 255, 255, 0.08);
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --brand-navy: #132448;
+      --brand-rose: #e09f8c;
+      --accent: #ff4d6d;
+      --accent-glow: rgba(255, 77, 109, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Floating Quick Nav Mascot */
+    .mascot-bubble {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #181d28;
+      border: 2px solid var(--accent);
+      box-shadow: 0 10px 25px var(--accent-glow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 1000;
+      transition: transform 0.25s ease;
+    }
+    .mascot-bubble:hover {
+      transform: scale(1.1);
+    }
+    .mascot-bubble svg {
+      width: 36px;
+      height: 36px;
+    }
+
+    /* Header & Navigation */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 8%;
+      border-bottom: 1px solid var(--border-color);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10, 12, 16, 0.85);
+    }
+    .logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.5px;
+    }
+    .logo span {
+      color: var(--accent);
+    }
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-left: 28px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: var(--text-main);
+    }
+
+    /* Hero Section with Interactive Mascot */
+    .hero {
+      padding: 100px 8% 80px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 40px;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    .hero-tag {
+      display: inline-block;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--accent);
+      background: rgba(255, 77, 109, 0.1);
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(255, 77, 109, 0.25);
+    }
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 3.5rem;
+      line-height: 1.1;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      margin-bottom: 35px;
+      max-width: 500px;
+    }
+    .btn-group {
+      display: flex;
+      gap: 16px;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 8px 20px var(--accent-glow);
+      transition: transform 0.2s;
+    }
+    .btn-secondary {
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover, .btn-secondary:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Interactive Avatar (Eye-Tracking Mascot) */
+    .mascot-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .mascot-card {
+      width: 320px;
+      height: 380px;
+      background: radial-gradient(circle at 50% 30%, #1f2736 0%, #10141d 100%);
+      border-radius: 24px;
+      border: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+    .mascot-art {
+      width: 220px;
+      height: 240px;
+      position: relative;
+    }
+
+    /* Section Global Styles */
+    section {
+      padding: 90px 8%;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    .section-header {
+      margin-bottom: 40px;
+    }
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+    }
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    /* Filter Tabs */
+    .filter-bar {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding-bottom: 15px;
+      margin-bottom: 35px;
+    }
+    .filter-btn {
+      background: var(--card-bg);
+      color: var(--text-muted);
+      border: 1px solid var(--border-color);
+      padding: 8px 18px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--text-main);
+      color: var(--bg-dark);
+      border-color: var(--text-main);
+    }
+
+    /* Project Cards & Galleries */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 30px;
+    }
+    .project-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      border: 1px solid var(--border-color);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+    .project-cover {
+      height: 240px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .cover-aura {
+      background: linear-gradient(135deg, #091122 0%, #132448 100%);
+      color: #f3f4f6;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    }
+    .cover-crumb {
+      background: linear-gradient(135deg, #2b1f1d 0%, #543936 100%);
+      color: #fed7aa;
+      border-bottom: 2px solid rgba(254, 215, 170, 0.2);
+    }
+    .project-body {
+      padding: 24px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .project-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .project-body h3 {
+      font-size: 1.35rem;
+      margin-bottom: 8px;
+    }
+    .project-body p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+    .palette-strip {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+    .swatch {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .deliverables {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .deliverable-badge {
+      font-size: 0.75rem;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 4px 10px;
+      border-radius: 4px;
+      color: var(--text-muted);
+    }
+
+    /* Future Placeholder Cards */
+    .placeholder-card {
+      background: rgba(18, 22, 31, 0.4);
+      border: 1px dashed var(--border-color);
+      border-radius: 16px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: 250px;
+    }
+    .placeholder-card span {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+    .placeholder-card h4 {
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+    }
+    .placeholder-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* About Section */
+    .about-box {
+      background: var(--card-bg);
+      border-radius: 20px;
+      border: 1px solid var(--border-color);
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 40px;
+    }
+    .about-box h3 {
+      font-size: 1.6rem;
+      margin-bottom: 14px;
+    }
+    .about-box p {
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      font-size: 1rem;
+    }
+    .toolkit-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .tool-chip {
+      background: rgba(255, 255, 255, 0.06);
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    /* Contact Section */
+    .contact-card {
+      background: linear-gradient(135deg, #161b26 0%, #0d1017 100%);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 50px 30px;
+      text-align: center;
+    }
+    .contact-card h2 {
+      font-size: 2.2rem;
+      margin-bottom: 12px;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .contact-card p {
+      color: var(--text-muted);
+      max-width: 500px;
+      margin: 0 auto 30px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 60px;
+      }
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      .btn-group {
+        justify-content: center;
+      }
+      .about-box {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Quick Scroll Mascot -->
+  <div class="mascot-bubble" title="Back to top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    <svg viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="42" fill="#800020" />
+      <circle cx="35" cy="45" r="7" fill="#ffffff" />
+      <circle cx="65" cy="45" r="7" fill="#ffffff" />
+      <circle cx="36" cy="45" r="3.5" fill="#12161f" />
+      <circle cx="66" cy="45" r="3.5" fill="#12161f" />
+      <path d="M 40 68 Q 50 78 60 68" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round" />
+    </svg>
+  </div>
+
+  <header>
+    <div class="logo">DRAFT TO FRAME<span>.</span></div>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#disciplines">Disciplines</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <span class="hero-tag">Identity & Visual Design</span>
+        <h1 class="hero-title">Ideas take shape.<br>Visuals tell stories.</h1>
+        <p class="hero-subtitle">Varnika Seth — Editorial graphic designer and visual storyteller crafting purposeful brand identities, packaging, and illustrative systems.</p>
+        <div class="btn-group">
+          <a href="#work" class="btn-primary">View Projects</a>
+          <a href="#contact" class="btn-secondary">Let's Connect</a>
+        </div>
+      </div>
+      
+      <!-- Interactive Mascot with Cursor Tracking Eyes -->
+      <div class="mascot-container">
+        <div class="mascot-card">
+          <svg class="mascot-art" viewBox="0 0 200 220">
+            <defs>
+              <linearGradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#1b1c24" />
+                <stop offset="100%" stop-color="#0b0c10" />
+              </linearGradient>
+            </defs>
+            <!-- Long Hair Backdrop -->
+            <path d="M 40 70 Q 20 130 35 210 Q 55 190 60 140 Z" fill="url(#hairGrad)" />
+            <path d="M 160 70 Q 180 130 165 210 Q 145 190 140 140 Z" fill="url(#hairGrad)" />
+            
+            <!-- Shoulders & Maroon Top -->
+            <path d="M 50 170 Q 100 150 150 170 L 175 220 L 25 220 Z" fill="#721c24" />
+            <path d="M 85 162 Q 100 180 115 162 Z" fill="#fcd5b5" />
+
+            <!-- Head/Neck -->
+            <rect x="90" y="130" width="20" height="30" fill="#fcd5b5" />
+            <ellipse cx="100" cy="100" rx="44" ry="48" fill="#fcd5b5" />
+
+            <!-- Hair Top/Sides -->
+            <path d="M 52 95 Q 50 45 100 45 Q 150 45 148 95 Q 125 60 100 60 Q 75 60 52 95 Z" fill="url(#hairGrad)" />
+
+            <!-- Left Eye Socket -->
+            <ellipse cx="80" cy="98" rx="10" ry="11" fill="#ffffff" />
+            <!-- Left Pupil (Tracked) -->
+            <circle id="pupil-left" cx="80" cy="98" r="4.8" fill="#1e1b18" />
+
+            <!-- Right Eye Socket -->
+            <ellipse cx="120" cy="98" rx="10" ry="11" fill="#ffffff" />
+            <!-- Right Pupil (Tracked) -->
+            <circle id="pupil-right" cx="120" cy="98" r="4.8" fill="#1e1b18" />
+
+            <!-- Eyebrows -->
+            <path d="M 72 84 Q 80 81 88 84" stroke="#2c2a29" stroke-width="2.5" fill="none" stroke-linecap="round" />
+            <path d="M 112 84 Q 120 81 128 84" stroke="#2c2a29" stroke-width="2.5" fill="none" stroke-linecap="round" />
+
+            <!-- Blush -->
+            <circle cx="70" cy="112" r="6" fill="#f59e9b" opacity="0.45" />
+            <circle cx="130" cy="112" r="6" fill="#f59e9b" opacity="0.45" />
+
+            <!-- Soft Smile -->
+            <path d="M 92 120 Q 100 128 108 120" stroke="#a05252" stroke-width="2.2" fill="none" stroke-linecap="round" />
+          </svg>
+          <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; font-weight: 600;">Creative Companion</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work Showcase -->
+    <section id="work">
+      <div class="section-header">
+        <h2 class="section-title">Selected Case Studies</h2>
+        <p class="section-desc">Comprehensive brand identity designs and complete packaging deliverables.</p>
+      </div>
+
+      <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterProjects('all')">All Disciplines</button>
+        <button class="filter-btn" onclick="filterProjects('branding')">Brand Identity</button>
+        <button class="filter-btn" onclick="filterProjects('packaging')">Packaging Dielines</button>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1: Aura Fine Jewels -->
+        <article class="project-card" data-category="branding packaging">
+          <div class="project-cover cover-aura">
+            AURA FINE JEWELS
+          </div>
+          <div class="project-body">
+            <div>
+              <div class="project-tag">Luxury Brand Identity & Packaging</div>
+              <h3>Aura Fine Jewels</h3>
+              <p>Comprehensive luxury identity including die-cut jewelry boxes, foil-stamped presentation bags, billboard advertising, and brand guide standards.</p>
+              <div class="palette-strip">
+                <div class="swatch" style="background: #132448;" title="Navy Core #132448"></div>
+                <div class="swatch" style="background: #ffffff;" title="Pure White"></div>
+                <div class="swatch" style="background: #c5a059;" title="Champagne Gold Accent"></div>
+              </div>
+            </div>
+            <div class="deliverables">
+              <span class="deliverable-badge">Dieline Spec</span>
+              <span class="deliverable-badge">Billboard 1920x1080</span>
+              <span class="deliverable-badge">Shopping Bag Mockup</span>
+              <span class="deliverable-badge">Identity Presentation</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2: Golden Crumb Bakery -->
+        <article class="project-card" data-category="branding packaging">
+          <div class="project-cover cover-crumb">
+            GOLDEN CRUMB BAKERY
+          </div>
+          <div class="project-body">
+            <div>
+              <div class="project-tag">Artisan Food Identity</div>
+              <h3>Golden Crumb Bakery</h3>
+              <p>Warm culinary branding centered around a custom chef-hat monogram, tactile bakery craft packaging, storefront signage, and menu collateral.</p>
+              <div class="palette-strip">
+                <div class="swatch" style="background: #fed7aa;" title="Warm Beige"></div>
+                <div class="swatch" style="background: #e09f8c;" title="Blush Rose"></div>
+                <div class="swatch" style="background: #4a342f;" title="Roasted Espresso"></div>
+              </div>
+            </div>
+            <div class="deliverables">
+              <span class="deliverable-badge">Monogram System</span>
+              <span class="deliverable-badge">Storefront Sign</span>
+              <span class="deliverable-badge">Dieline Pastry Box</span>
+              <span class="deliverable-badge">Promo Menu</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Future Discipline Reserved Galleries -->
+    <section id="disciplines">
+      <div class="section-header">
+        <h2 class="section-title">Expanded Disciplines</h2>
+        <p class="section-desc">Upcoming galleries currently in production.</p>
+      </div>
+      <div class="projects-grid">
+        <div class="placeholder-card">
+          <span>🎯</span>
+          <h4>Advertising Design</h4>
+          <p>High-conversion commercial campaigns & ad creatives.</p>
+        </div>
+        <div class="placeholder-card">
+          <span>✨</span>
+          <h4>Photo Manipulation</h4>
+          <p>Advanced multi-plate compositing & retouching.</p>
+        </div>
+        <div class="placeholder-card">
+          <span>📐</span>
+          <h4>Vector Art & Illustration</h4>
+          <p>Bespoke vector iconography & editorial illustrations.</p>
+        </div>
+        <div class="placeholder-card">
+          <span>🎬</span>
+          <h4>Video Editing & Motion</h4>
+          <p>Short-form reels & timeline cuts (Premiere Pro, CapCut).</p>
+        </div>
+        <div class="placeholder-card">
+          <span>🎞️</span>
+          <h4>2D Animation</h4>
+          <p>Keyframe character animations & movement loops.</p>
+        </div>
+        <div class="placeholder-card">
+          <span>🎨</span>
+          <h4>Fine Arts & Painting</h4>
+          <p>Traditional acrylic compositions and physical studies.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <div class="about-box">
+        <div>
+          <h3>About Varnika Seth</h3>
+          <p>I am a graphic designer and visual artist combining a structured business administration foundation with hands-on visual storytelling. My practice centers on translating raw concepts into coherent visual frameworks—from editorial slide decks and luxury brand packaging to digital animation.</p>
+          <p>Whether calculating typography scale for a physical die-cut box or keyframing vector assets, I prioritize precision, identity harmony, and clean presentation.</p>
+          <div class="toolkit-grid">
+            <span class="tool-chip">Adobe Photoshop</span>
+            <span class="tool-chip">Adobe Illustrator</span>
+            <span class="tool-chip">Adobe Animate</span>
+            <span class="tool-chip">DaVinci Resolve</span>
+            <span class="tool-chip">Premiere Pro</span>
+            <span class="tool-chip">Krita</span>
+            <span class="tool-chip">Canva</span>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; justify-content: center; border-left: 1px solid var(--border-color); padding-left: 30px;">
+          <h4 style="margin-bottom: 12px; font-size: 1.1rem;">Core Focus</h4>
+          <ul style="list-style: none; color: var(--text-muted); font-size: 0.95rem; line-height: 2;">
+            <li>✦ Brand Identity Systems</li>
+            <li>✦ Packaging & Dielines</li>
+            <li>✦ 2D Animation & Motion</li>
+            <li>✦ Editorial Presentation</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Services Section -->
+    <section id="contact">
+      <div class="contact-card">
+        <h2>Let's build something intentional.</h2>
+        <p>Available for visual identity design, packaging systems, custom vector illustrations, and motion projects.</p>
+        <a href="mailto:contact@varnikaseth.com" class="btn-primary">Get In Touch</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Varnika Seth. Built for DRAFT TO FRAME. Hosted on Vercel.</p>
+  </footer>
+
+  <script>
+    // Eye-Tracking Mascot Logic
+    const leftPupil = document.getElementById('pupil-left');
+    const rightPupil = document.getElementById('pupil-right');
+
+    const leftBase = { x: 80, y: 98 };
+    const rightBase = { x: 120, y: 98 };
+    const maxRadius = 3.5;
+
+    window.addEventListener('mousemove', (e) => {
+      const { innerWidth, innerHeight } = window;
+      const nx = (e.clientX / innerWidth - 0.5) * 2;
+      const ny = (e.clientY / innerHeight - 0.5) * 2;
+
+      const angle = Math.atan2(ny, nx);
+      const distance = Math.min(Math.hypot(nx, ny), 1) * maxRadius;
+
+      const offsetX = Math.cos(angle) * distance;
+      const offsetY = Math.sin(angle) * distance;
+
+      if (leftPupil && rightPupil) {
+        leftPupil.setAttribute('cx', (leftBase.x + offsetX).toFixed(2));
+        leftPupil.setAttribute('cy', (leftBase.y + offsetY).toFixed(2));
+        rightPupil.setAttribute('cx', (rightBase.x + offsetX).toFixed(2));
+        rightPupil.setAttribute('cy', (rightBase.y + offsetY).toFixed(2));
+      }
+    });
+
+    // Simple Gallery Filter
+    function filterProjects(tag) {
+      const cards = document.querySelectorAll('.project-card');
+      const buttons = document.querySelectorAll('.filter-btn');
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      cards.forEach(card => {
+        if (tag === 'all' || card.getAttribute('data-category').includes(tag)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
