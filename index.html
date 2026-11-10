@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Varnika Seth | DRAFT TO FRAME Portfolio</title>
+  <title>Varnika Seth | DRAFT TO FRAME</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -14,8 +14,6 @@
       --border-color: rgba(255, 255, 255, 0.08);
       --text-main: #f3f4f6;
       --text-muted: #9ca3af;
-      --brand-navy: #132448;
-      --brand-rose: #e09f8c;
       --accent: #ff4d6d;
       --accent-glow: rgba(255, 77, 109, 0.25);
     }
@@ -34,7 +32,7 @@
       overflow-x: hidden;
     }
 
-    /* Floating Quick Nav Mascot */
+    /* Floating Bubble Mascot */
     .mascot-bubble {
       position: fixed;
       bottom: 24px;
@@ -50,22 +48,24 @@
       justify-content: center;
       cursor: pointer;
       z-index: 1000;
+      overflow: hidden;
       transition: transform 0.25s ease;
     }
     .mascot-bubble:hover {
       transform: scale(1.1);
     }
-    .mascot-bubble svg {
-      width: 36px;
-      height: 36px;
+    .mascot-bubble img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
-    /* Header & Navigation */
+    /* Navigation */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 24px 8%;
+      padding: 22px 8%;
       border-bottom: 1px solid var(--border-color);
       backdrop-filter: blur(12px);
       position: sticky;
@@ -76,7 +76,7 @@
     .logo {
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
-      font-size: 1.25rem;
+      font-size: 1.3rem;
       letter-spacing: -0.5px;
     }
     .logo span {
@@ -94,9 +94,9 @@
       color: var(--text-main);
     }
 
-    /* Hero Section with Interactive Mascot */
+    /* Hero */
     .hero {
-      padding: 100px 8% 80px;
+      padding: 90px 8% 70px;
       display: grid;
       grid-template-columns: 1.2fr 0.8fr;
       align-items: center;
@@ -125,10 +125,10 @@
       margin-bottom: 20px;
     }
     .hero-subtitle {
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       color: var(--text-muted);
-      margin-bottom: 35px;
-      max-width: 500px;
+      margin-bottom: 32px;
+      max-width: 520px;
     }
     .btn-group {
       display: flex;
@@ -137,7 +137,7 @@
     .btn-primary {
       background: var(--accent);
       color: #fff;
-      padding: 14px 28px;
+      padding: 13px 26px;
       border-radius: 8px;
       font-weight: 600;
       text-decoration: none;
@@ -147,7 +147,7 @@
     .btn-secondary {
       border: 1px solid var(--border-color);
       color: var(--text-main);
-      padding: 14px 28px;
+      padding: 13px 26px;
       border-radius: 8px;
       font-weight: 600;
       text-decoration: none;
@@ -157,14 +157,13 @@
       transform: translateY(-2px);
     }
 
-    /* Interactive Avatar (Eye-Tracking Mascot) */
+    /* Interactive Mascot Card */
     .mascot-container {
       display: flex;
       justify-content: center;
       align-items: center;
-      position: relative;
     }
-    .mascot-card {
+    .mascot-stage {
       width: 320px;
       height: 380px;
       background: radial-gradient(circle at 50% 30%, #1f2736 0%, #10141d 100%);
@@ -176,39 +175,56 @@
       justify-content: center;
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
       position: relative;
-      overflow: hidden;
     }
-    .mascot-art {
-      width: 220px;
-      height: 240px;
+    .mascot-canvas {
       position: relative;
+      width: 220px;
+      height: 250px;
+    }
+    .mascot-head-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .pupil-layer {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      z-index: 1;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
     }
 
-    /* Section Global Styles */
+    /* Sections */
     section {
-      padding: 90px 8%;
+      padding: 80px 8%;
       max-width: 1300px;
       margin: 0 auto;
     }
     .section-header {
-      margin-bottom: 40px;
+      margin-bottom: 35px;
     }
     .section-title {
       font-family: 'Space Grotesk', sans-serif;
       font-size: 2.2rem;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
     .section-desc {
       color: var(--text-muted);
-      font-size: 1rem;
+      font-size: 0.95rem;
     }
 
-    /* Filter Tabs */
+    /* Filter Bar */
     .filter-bar {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       overflow-x: auto;
-      padding-bottom: 15px;
+      padding-bottom: 12px;
       margin-bottom: 35px;
     }
     .filter-btn {
@@ -218,7 +234,7 @@
       padding: 8px 18px;
       border-radius: 20px;
       cursor: pointer;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 500;
       white-space: nowrap;
       transition: all 0.2s ease;
@@ -229,13 +245,13 @@
       border-color: var(--text-main);
     }
 
-    /* Project Cards & Galleries */
-    .projects-grid {
+    /* Grid Layout */
+    .work-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
       gap: 30px;
     }
-    .project-card {
+    .item-card {
       background: var(--card-bg);
       border-radius: 16px;
       border: 1px solid var(--border-color);
@@ -244,39 +260,34 @@
       flex-direction: column;
       transition: transform 0.25s, border-color 0.25s;
     }
-    .project-card:hover {
+    .item-card:hover {
       transform: translateY(-5px);
       border-color: rgba(255, 255, 255, 0.25);
     }
-    .project-cover {
-      height: 240px;
+    .item-thumb-box {
+      width: 100%;
+      height: 250px;
+      background: #0d1017;
+      overflow: hidden;
       position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.5rem;
-      font-weight: 700;
-      letter-spacing: 1px;
     }
-    .cover-aura {
-      background: linear-gradient(135deg, #091122 0%, #132448 100%);
-      color: #f3f4f6;
-      border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    .item-thumb-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
     }
-    .cover-crumb {
-      background: linear-gradient(135deg, #2b1f1d 0%, #543936 100%);
-      color: #fed7aa;
-      border-bottom: 2px solid rgba(254, 215, 170, 0.2);
+    .item-card:hover .item-thumb-box img {
+      transform: scale(1.04);
     }
-    .project-body {
-      padding: 24px;
+    .item-body {
+      padding: 22px;
       flex-grow: 1;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
-    .project-tag {
+    .item-tag {
       font-size: 0.75rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -284,32 +295,21 @@
       color: var(--accent);
       margin-bottom: 6px;
     }
-    .project-body h3 {
-      font-size: 1.35rem;
+    .item-body h3 {
+      font-size: 1.25rem;
       margin-bottom: 8px;
     }
-    .project-body p {
-      font-size: 0.95rem;
+    .item-body p {
+      font-size: 0.9rem;
       color: var(--text-muted);
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
-    .palette-strip {
+    .item-meta {
       display: flex;
       gap: 8px;
-      margin-bottom: 18px;
-    }
-    .swatch {
-      width: 24px;
-      height: 24px;
-      border-radius: 6px;
-      border: 1px solid rgba(255,255,255,0.15);
-    }
-    .deliverables {
-      display: flex;
       flex-wrap: wrap;
-      gap: 6px;
     }
-    .deliverable-badge {
+    .badge {
       font-size: 0.75rem;
       background: rgba(255, 255, 255, 0.05);
       padding: 4px 10px;
@@ -317,66 +317,38 @@
       color: var(--text-muted);
     }
 
-    /* Future Placeholder Cards */
-    .placeholder-card {
-      background: rgba(18, 22, 31, 0.4);
-      border: 1px dashed var(--border-color);
-      border-radius: 16px;
-      padding: 30px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      min-height: 250px;
-    }
-    .placeholder-card span {
-      font-size: 2rem;
-      margin-bottom: 12px;
-    }
-    .placeholder-card h4 {
-      font-size: 1.1rem;
-      margin-bottom: 6px;
-    }
-    .placeholder-card p {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    /* About Section */
+    /* About */
     .about-box {
       background: var(--card-bg);
       border-radius: 20px;
       border: 1px solid var(--border-color);
-      padding: 48px;
+      padding: 45px;
       display: grid;
       grid-template-columns: 2fr 1fr;
       gap: 40px;
     }
     .about-box h3 {
       font-size: 1.6rem;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
     .about-box p {
       color: var(--text-muted);
       margin-bottom: 16px;
-      font-size: 1rem;
     }
-    .toolkit-grid {
+    .tool-grid {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-top: 20px;
+      margin-top: 15px;
     }
     .tool-chip {
       background: rgba(255, 255, 255, 0.06);
       padding: 6px 14px;
       border-radius: 6px;
       font-size: 0.85rem;
-      font-weight: 500;
     }
 
-    /* Contact Section */
+    /* Contact */
     .contact-card {
       background: linear-gradient(135deg, #161b26 0%, #0d1017 100%);
       border: 1px solid var(--border-color);
@@ -407,7 +379,6 @@
       .hero {
         grid-template-columns: 1fr;
         text-align: center;
-        padding-top: 60px;
       }
       .hero-title {
         font-size: 2.5rem;
@@ -423,16 +394,9 @@
 </head>
 <body>
 
-  <!-- Floating Quick Scroll Mascot -->
+  <!-- Floating Mascot Bubble -->
   <div class="mascot-bubble" title="Back to top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-    <svg viewBox="0 0 100 100">
-      <circle cx="50" cy="50" r="42" fill="#800020" />
-      <circle cx="35" cy="45" r="7" fill="#ffffff" />
-      <circle cx="65" cy="45" r="7" fill="#ffffff" />
-      <circle cx="36" cy="45" r="3.5" fill="#12161f" />
-      <circle cx="66" cy="45" r="3.5" fill="#12161f" />
-      <path d="M 40 68 Q 50 78 60 68" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round" />
-    </svg>
+    <img src="macot.png.png" alt="Mascot Avatar" onerror="this.src='mascot head.png.png'">
   </div>
 
   <header>
@@ -440,7 +404,6 @@
     <nav>
       <a href="#work">Work</a>
       <a href="#about">About</a>
-      <a href="#disciplines">Disciplines</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -449,169 +412,305 @@
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-content">
-        <span class="hero-tag">Identity & Visual Design</span>
+        <span class="hero-tag">Visual Storytelling & Identity</span>
         <h1 class="hero-title">Ideas take shape.<br>Visuals tell stories.</h1>
-        <p class="hero-subtitle">Varnika Seth — Editorial graphic designer and visual storyteller crafting purposeful brand identities, packaging, and illustrative systems.</p>
+        <p class="hero-subtitle">Varnika Seth — Editorial graphic designer and visual artist crafting bespoke brand identities, luxury packaging, and illustrative systems.</p>
         <div class="btn-group">
-          <a href="#work" class="btn-primary">View Projects</a>
-          <a href="#contact" class="btn-secondary">Let's Connect</a>
+          <a href="#work" class="btn-primary">Explore Work</a>
+          <a href="#contact" class="btn-secondary">Get In Touch</a>
         </div>
       </div>
-      
-      <!-- Interactive Mascot with Cursor Tracking Eyes -->
+
+      <!-- Live Cursor-Tracking Mascot -->
       <div class="mascot-container">
-        <div class="mascot-card">
-          <svg class="mascot-art" viewBox="0 0 200 220">
-            <defs>
-              <linearGradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#1b1c24" />
-                <stop offset="100%" stop-color="#0b0c10" />
-              </linearGradient>
-            </defs>
-            <!-- Long Hair Backdrop -->
-            <path d="M 40 70 Q 20 130 35 210 Q 55 190 60 140 Z" fill="url(#hairGrad)" />
-            <path d="M 160 70 Q 180 130 165 210 Q 145 190 140 140 Z" fill="url(#hairGrad)" />
-            
-            <!-- Shoulders & Maroon Top -->
-            <path d="M 50 170 Q 100 150 150 170 L 175 220 L 25 220 Z" fill="#721c24" />
-            <path d="M 85 162 Q 100 180 115 162 Z" fill="#fcd5b5" />
-
-            <!-- Head/Neck -->
-            <rect x="90" y="130" width="20" height="30" fill="#fcd5b5" />
-            <ellipse cx="100" cy="100" rx="44" ry="48" fill="#fcd5b5" />
-
-            <!-- Hair Top/Sides -->
-            <path d="M 52 95 Q 50 45 100 45 Q 150 45 148 95 Q 125 60 100 60 Q 75 60 52 95 Z" fill="url(#hairGrad)" />
-
-            <!-- Left Eye Socket -->
-            <ellipse cx="80" cy="98" rx="10" ry="11" fill="#ffffff" />
-            <!-- Left Pupil (Tracked) -->
-            <circle id="pupil-left" cx="80" cy="98" r="4.8" fill="#1e1b18" />
-
-            <!-- Right Eye Socket -->
-            <ellipse cx="120" cy="98" rx="10" ry="11" fill="#ffffff" />
-            <!-- Right Pupil (Tracked) -->
-            <circle id="pupil-right" cx="120" cy="98" r="4.8" fill="#1e1b18" />
-
-            <!-- Eyebrows -->
-            <path d="M 72 84 Q 80 81 88 84" stroke="#2c2a29" stroke-width="2.5" fill="none" stroke-linecap="round" />
-            <path d="M 112 84 Q 120 81 128 84" stroke="#2c2a29" stroke-width="2.5" fill="none" stroke-linecap="round" />
-
-            <!-- Blush -->
-            <circle cx="70" cy="112" r="6" fill="#f59e9b" opacity="0.45" />
-            <circle cx="130" cy="112" r="6" fill="#f59e9b" opacity="0.45" />
-
-            <!-- Soft Smile -->
-            <path d="M 92 120 Q 100 128 108 120" stroke="#a05252" stroke-width="2.2" fill="none" stroke-linecap="round" />
-          </svg>
-          <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; font-weight: 600;">Creative Companion</div>
+        <div class="mascot-stage">
+          <div class="mascot-canvas" id="mascot-frame">
+            <img src="mascot head.png.png" alt="Mascot Portrait" class="mascot-head-img" onerror="this.src='macot.png.png'">
+            <!-- Left & Right Pupils -->
+            <img src="pupil.png.png" id="pupil-l" class="pupil-layer" style="left: 90px; top: 110px;" alt="">
+            <img src="pupil.png.png" id="pupil-r" class="pupil-layer" style="left: 130px; top: 110px;" alt="">
+          </div>
+          <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 12px; font-weight: 600;">Creative Companion</div>
         </div>
       </div>
     </section>
 
-    <!-- Work Showcase -->
+    <!-- Work Gallery Section -->
     <section id="work">
       <div class="section-header">
-        <h2 class="section-title">Selected Case Studies</h2>
-        <p class="section-desc">Comprehensive brand identity designs and complete packaging deliverables.</p>
+        <h2 class="section-title">Design Portfolio</h2>
+        <p class="section-desc">Selected identity systems, packaging dielines, commercial advertising, and posters.</p>
       </div>
 
+      <!-- Filter Controls -->
       <div class="filter-bar">
-        <button class="filter-btn active" onclick="filterProjects('all')">All Disciplines</button>
-        <button class="filter-btn" onclick="filterProjects('branding')">Brand Identity</button>
-        <button class="filter-btn" onclick="filterProjects('packaging')">Packaging Dielines</button>
+        <button class="filter-btn active" onclick="filterGallery('all')">All Work</button>
+        <button class="filter-btn" onclick="filterGallery('branding')">Branding & Packaging</button>
+        <button class="filter-btn" onclick="filterGallery('advertising')">Advertising Design</button>
+        <button class="filter-btn" onclick="filterGallery('posters')">Posters & Manipulation</button>
+        <button class="filter-btn" onclick="filterGallery('art')">Fine Art & Vector</button>
       </div>
 
-      <div class="projects-grid">
-        <!-- Project 1: Aura Fine Jewels -->
-        <article class="project-card" data-category="branding packaging">
-          <div class="project-cover cover-aura">
-            AURA FINE JEWELS
+      <div class="work-grid">
+        <!-- Aura Fine Jewels: Mockup -->
+        <article class="item-card" data-cat="branding">
+          <div class="item-thumb-box">
+            <img src="aura-mockup.jpg - Copy.png" alt="Aura Fine Jewels Luxury Packaging">
           </div>
-          <div class="project-body">
+          <div class="item-body">
             <div>
-              <div class="project-tag">Luxury Brand Identity & Packaging</div>
-              <h3>Aura Fine Jewels</h3>
-              <p>Comprehensive luxury identity including die-cut jewelry boxes, foil-stamped presentation bags, billboard advertising, and brand guide standards.</p>
-              <div class="palette-strip">
-                <div class="swatch" style="background: #132448;" title="Navy Core #132448"></div>
-                <div class="swatch" style="background: #ffffff;" title="Pure White"></div>
-                <div class="swatch" style="background: #c5a059;" title="Champagne Gold Accent"></div>
-              </div>
+              <div class="item-tag">Brand Identity & Packaging</div>
+              <h3>Aura Fine Jewels — Box Mockup</h3>
+              <p>Luxury deep navy and gold presentation package tailored for fine bespoke jewelry.</p>
             </div>
-            <div class="deliverables">
-              <span class="deliverable-badge">Dieline Spec</span>
-              <span class="deliverable-badge">Billboard 1920x1080</span>
-              <span class="deliverable-badge">Shopping Bag Mockup</span>
-              <span class="deliverable-badge">Identity Presentation</span>
+            <div class="item-meta">
+              <span class="badge">Navy Core #132448</span>
+              <span class="badge">Packaging</span>
             </div>
           </div>
         </article>
 
-        <!-- Project 2: Golden Crumb Bakery -->
-        <article class="project-card" data-category="branding packaging">
-          <div class="project-cover cover-crumb">
-            GOLDEN CRUMB BAKERY
+        <!-- Aura Fine Jewels: Dieline -->
+        <article class="item-card" data-cat="branding">
+          <div class="item-thumb-box">
+            <img src="aura-diecut.jpg.png" alt="Aura Fine Jewels Diecut Specification">
           </div>
-          <div class="project-body">
+          <div class="item-body">
             <div>
-              <div class="project-tag">Artisan Food Identity</div>
-              <h3>Golden Crumb Bakery</h3>
-              <p>Warm culinary branding centered around a custom chef-hat monogram, tactile bakery craft packaging, storefront signage, and menu collateral.</p>
-              <div class="palette-strip">
-                <div class="swatch" style="background: #fed7aa;" title="Warm Beige"></div>
-                <div class="swatch" style="background: #e09f8c;" title="Blush Rose"></div>
-                <div class="swatch" style="background: #4a342f;" title="Roasted Espresso"></div>
-              </div>
+              <div class="item-tag">Production Specs</div>
+              <h3>Aura Jewels — Dieline Template</h3>
+              <p>Precision cut & fold dielines engineered for premium unboxing experiences.</p>
             </div>
-            <div class="deliverables">
-              <span class="deliverable-badge">Monogram System</span>
-              <span class="deliverable-badge">Storefront Sign</span>
-              <span class="deliverable-badge">Dieline Pastry Box</span>
-              <span class="deliverable-badge">Promo Menu</span>
+            <div class="item-meta">
+              <span class="badge">Dieline Spec</span>
+              <span class="badge">Print Production</span>
             </div>
           </div>
         </article>
-      </div>
-    </section>
 
-    <!-- Future Discipline Reserved Galleries -->
-    <section id="disciplines">
-      <div class="section-header">
-        <h2 class="section-title">Expanded Disciplines</h2>
-        <p class="section-desc">Upcoming galleries currently in production.</p>
-      </div>
-      <div class="projects-grid">
-        <div class="placeholder-card">
-          <span>🎯</span>
-          <h4>Advertising Design</h4>
-          <p>High-conversion commercial campaigns & ad creatives.</p>
-        </div>
-        <div class="placeholder-card">
-          <span>✨</span>
-          <h4>Photo Manipulation</h4>
-          <p>Advanced multi-plate compositing & retouching.</p>
-        </div>
-        <div class="placeholder-card">
-          <span>📐</span>
-          <h4>Vector Art & Illustration</h4>
-          <p>Bespoke vector iconography & editorial illustrations.</p>
-        </div>
-        <div class="placeholder-card">
-          <span>🎬</span>
-          <h4>Video Editing & Motion</h4>
-          <p>Short-form reels & timeline cuts (Premiere Pro, CapCut).</p>
-        </div>
-        <div class="placeholder-card">
-          <span>🎞️</span>
-          <h4>2D Animation</h4>
-          <p>Keyframe character animations & movement loops.</p>
-        </div>
-        <div class="placeholder-card">
-          <span>🎨</span>
-          <h4>Fine Arts & Painting</h4>
-          <p>Traditional acrylic compositions and physical studies.</p>
-        </div>
+        <!-- Aura Fine Jewels: Billboard -->
+        <article class="item-card" data-cat="branding advertising">
+          <div class="item-thumb-box">
+            <img src="aura-billboard.jpg - Copy.png" alt="Aura Fine Jewels Billboard">
+          </div>
+          <div class="item-body">
+            <div>
+              <div class="item-tag">Out of Home Advertising</div>
+              <h3>Aura Jewels — Billboard Campaign</h3>
+              <p>Large-scale editorial visual layout with high-contrast luxury art direction.</p>
+            </div>
+            <div class="item-meta">
+              <span class="badge">1920x1080</span>
+              <span class="badge">Billboard</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Aura Fine Jewels: Poster -->
+        <article class="item-card" data-cat="branding posters">
+          <div class="item-thumb-box">
+            <img src="aura-poster.jpg.png" alt="Aura Fine Jewels Editorial Poster">
+          </div>
+          <div class="item-body">
+            <div>
+              <div class="item-tag">Campaign Poster</div>
+              <h3>Aura Jewels — Showcase Poster</h3>
+              <p>Editorial showcase poster highlighting elegance and minimal typographic treatment.</p>
+            </div>
+            <div class="item-meta">
+              <span class="badge">Poster Design</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Golden Crumb Bakery: Branding -->
+        <article class="item-card" data-cat="branding">
+          <div class="item-thumb-box">
+            <img src="bakery-branding.jpg - Copy.png" alt="Golden Crumb Bakery Branding">
+          </div>
+          <div class="item-body">
+            <div>
+              <div class="item-tag">Brand Identity</div>
+              <h3>Golden Crumb Bakery — System</h3>
+              <p>Warm artisan brand identity featuring a signature chef-hat monogram and soft blush tones.</p>
+            </div>
+            <div class="item-meta">
+              <span class="badge">Brand System</span>
+              <span class="badge">Monogram</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Golden Crumb Bakery: Pastry Box -->
+        <article class="item-card" data-cat="branding">
+          <div class="item-thumb-box">
+            <img src="bakery-box.jpg.png" alt="Golden Crumb Bakery Packaging Box">
+          </div>
+          <div class="item-body">
+            <div>
+              <div class="item-tag">Tactile Packaging</div>
+              <h3>Golden Crumb — Pastry Box</h3>
+              <p>Custom pastry box packaging balancing artisan warmth with clean store branding.</p>
+            </div>
+            <div class="item-meta">
+              <span class="badge">Packaging</span>
+              <span class="badge">Bakery Box</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Golden Crumb Bakery: Shake Ad -->
+        <article class="item-card" data-cat="advertising">
+          <div class="item-thumb-box">
+            <img src="bakery-shake-ad.jpg - Copy.png" alt="Golden Crumb Shake Campaign">
+          </div>
+          <div class="item-body">
+            <div>
+              <div class="item-tag">Commercial Promo</div>
+              <h3>Golden Crumb — Shake Ad</h3>
+              <p>Dynamic commercial promotional poster designed for seasonal menu highlights.</p>
+            </div>
+            <div class="item-meta">
+              <span class="badge">Promo Creative</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Golden Crumb Bakery: Collateral -->
+        <article class="item-card" data-cat="branding">
+          <div class="item-thumb-box">
+            <img src="bakery-card.jpg - Copy.png" alt="Golden Crumb Brand Cards">
+          </div>
+          <div class="item-body">
+            <div>
+              <div class="item-tag">Stationery Collateral</div>
+              <h3>Golden Crumb — Menu & Cards</h3>
+              <p>In-store stationery, thank-you cards, and promotional menu collateral.</p>
+            </div>
+            <div class="item-meta">
+              <span class="badge">Stationery</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Advertising: Headphones -->
+        <article class="item-card" data-cat="advertising">
+          <div class="item-thumb-box">
+            <img src="ad-headphone.jpg - Copy.png" alt="Headphone Commercial Ad">
+          </div>
+          <div class="item-body">
+            <div>
+              <div class="item-tag">Advertising Design</div>
+              <h3>Acoustic Sound — Commercial Ad</h3>
+              <p>Sleek consumer tech poster emphasizing sound immersion and clean lighting.</p>
+            </div>
+            <div class="item-meta">
+              <span class="badge">Tech Ad</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Advertising: Perfume -->
+        <article class="item-card" data-cat="advertising">
+          <div class="item-thumb-box">
+            <img src="ad-perfume.jpg - Copy.png" alt="Luxury Perfume Ad">
+          </div>
+          <div class="item-body">
+            <div>
+              <div class="item-tag">Product Advertising</div>
+              <h3>Luxury Fragrance Campaign</h3>
+              <p>Sophisticated commercial layout with soft reflections and atmospheric depth.</p>
+            </div>
+            <div class="item-meta">
+              <span class="badge">Luxury Product</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Advertising: Sprite -->
+        <article class="item-card" data-cat="advertising">
+          <div class="item-thumb-box">
+            <img src="ad-sprite.jpg - Copy.png" alt="Sprite Beverage Splash Ad">
+          </div>
+          <div class="item-body">
+            <div>
+              <div class="item-tag">Beverage Creative</div>
+              <h3>Sprite Splash — Campaign</h3>
+              <p>High-energy commercial advertisement featuring dynamic fluid splash elements.</p>
+            </div>
+            <div class="item-meta">
+              <span class="badge">Beverage Ad</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Poster: Cyberpunk -->
+        <article class="item-card" data-cat="posters">
+          <div class="item-thumb-box">
+            <img src="poster-cyberpunk.jpg.png" alt="Cyberpunk Concept Poster">
+          </div>
+          <div class="item-body">
+            <div>
+              <div class="item-tag">Photo Manipulation</div>
+              <h3>Cyberpunk Metropolis</h3>
+              <p>Complex digital composite balancing neon lighting, color grading, and sci-fi mood.</p>
+            </div>
+            <div class="item-meta">
+              <span class="badge">Compositing</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Poster: Money Heist -->
+        <article class="item-card" data-cat="posters">
+          <div class="item-thumb-box">
+            <img src="poster-money-heist.jpg.png" alt="Money Heist Concept Poster">
+          </div>
+          <div class="item-body">
+            <div>
+              <div class="item-tag">Thematic Poster</div>
+              <h3>Money Heist Editorial Key Art</h3>
+              <p>Cinematic promotional poster focusing on tension, stark red contrasts, and typography.</p>
+            </div>
+            <div class="item-meta">
+              <span class="badge">Key Art</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Fine Art: Kaali Artwork -->
+        <article class="item-card" data-cat="art">
+          <div class="item-thumb-box">
+            <img src="art-kaali.jpg.png" alt="Traditional Fine Art Painting">
+          </div>
+          <div class="item-body">
+            <div>
+              <div class="item-tag">Traditional Fine Art</div>
+              <h3>Maa Kaali — Fine Art Painting</h3>
+              <p>Traditional fine art study exploring spiritual power, rich texture, and expressiveness.</p>
+            </div>
+            <div class="item-meta">
+              <span class="badge">Traditional Art</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Vector Art -->
+        <article class="item-card" data-cat="art">
+          <div class="item-thumb-box">
+            <img src="art-vector.jpg - Copy.png" alt="Vector Art & Illustration">
+          </div>
+          <div class="item-body">
+            <div>
+              <div class="item-tag">Vector Illustration</div>
+              <h3>Vector Illustration Study</h3>
+              <p>Clean geometric lines, structured bezier curves, and contemporary palette harmony.</p>
+            </div>
+            <div class="item-meta">
+              <span class="badge">Vector Art</span>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -620,9 +719,8 @@
       <div class="about-box">
         <div>
           <h3>About Varnika Seth</h3>
-          <p>I am a graphic designer and visual artist combining a structured business administration foundation with hands-on visual storytelling. My practice centers on translating raw concepts into coherent visual frameworks—from editorial slide decks and luxury brand packaging to digital animation.</p>
-          <p>Whether calculating typography scale for a physical die-cut box or keyframing vector assets, I prioritize precision, identity harmony, and clean presentation.</p>
-          <div class="toolkit-grid">
+          <p>I am a graphic designer and visual artist combining a structured business administration foundation with hands-on visual storytelling. My workflow centers on translating raw concepts into polished visual executions—from luxury brand packaging and dielines to digital composites and traditional fine arts.</p>
+          <div class="tool-grid">
             <span class="tool-chip">Adobe Photoshop</span>
             <span class="tool-chip">Adobe Illustrator</span>
             <span class="tool-chip">Adobe Animate</span>
@@ -632,70 +730,67 @@
             <span class="tool-chip">Canva</span>
           </div>
         </div>
-        <div style="display: flex; flex-direction: column; justify-content: center; border-left: 1px solid var(--border-color); padding-left: 30px;">
-          <h4 style="margin-bottom: 12px; font-size: 1.1rem;">Core Focus</h4>
+        <div style="border-left: 1px solid var(--border-color); padding-left: 30px;">
+          <h4 style="margin-bottom: 12px; font-size: 1.1rem;">Disciplines</h4>
           <ul style="list-style: none; color: var(--text-muted); font-size: 0.95rem; line-height: 2;">
             <li>✦ Brand Identity Systems</li>
             <li>✦ Packaging & Dielines</li>
+            <li>✦ Advertising & Key Art</li>
+            <li>✦ Photo Manipulation</li>
             <li>✦ 2D Animation & Motion</li>
-            <li>✦ Editorial Presentation</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- Contact & Services Section -->
+    <!-- Contact Section -->
     <section id="contact">
       <div class="contact-card">
         <h2>Let's build something intentional.</h2>
-        <p>Available for visual identity design, packaging systems, custom vector illustrations, and motion projects.</p>
+        <p>Available for freelance identity design, packaging projects, advertising campaigns, and motion work.</p>
         <a href="mailto:contact@varnikaseth.com" class="btn-primary">Get In Touch</a>
       </div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2026 Varnika Seth. Built for DRAFT TO FRAME. Hosted on Vercel.</p>
+    <p>&copy; 2026 Varnika Seth. DRAFT TO FRAME. Deployed on Vercel.</p>
   </footer>
 
   <script>
-    // Eye-Tracking Mascot Logic
-    const leftPupil = document.getElementById('pupil-left');
-    const rightPupil = document.getElementById('pupil-right');
-
-    const leftBase = { x: 80, y: 98 };
-    const rightBase = { x: 120, y: 98 };
-    const maxRadius = 3.5;
+    // Eye-Tracking Puppet
+    const pL = document.getElementById('pupil-l');
+    const pR = document.getElementById('pupil-r');
+    const stage = document.getElementById('mascot-frame');
 
     window.addEventListener('mousemove', (e) => {
-      const { innerWidth, innerHeight } = window;
-      const nx = (e.clientX / innerWidth - 0.5) * 2;
-      const ny = (e.clientY / innerHeight - 0.5) * 2;
+      if (!pL || !pR || !stage) return;
+      const rect = stage.getBoundingClientRect();
+      const stageCenterX = rect.left + rect.width / 2;
+      const stageCenterY = rect.top + rect.height / 2;
 
-      const angle = Math.atan2(ny, nx);
-      const distance = Math.min(Math.hypot(nx, ny), 1) * maxRadius;
+      const dx = e.clientX - stageCenterX;
+      const dy = e.clientY - stageCenterY;
+      const angle = Math.atan2(dy, dx);
+      const dist = Math.min(Math.hypot(dx, dy) / 25, 6);
 
-      const offsetX = Math.cos(angle) * distance;
-      const offsetY = Math.sin(angle) * distance;
+      const offX = Math.cos(angle) * dist;
+      const offY = Math.sin(angle) * dist;
 
-      if (leftPupil && rightPupil) {
-        leftPupil.setAttribute('cx', (leftBase.x + offsetX).toFixed(2));
-        leftPupil.setAttribute('cy', (leftBase.y + offsetY).toFixed(2));
-        rightPupil.setAttribute('cx', (rightBase.x + offsetX).toFixed(2));
-        rightPupil.setAttribute('cy', (rightBase.y + offsetY).toFixed(2));
-      }
+      pL.style.transform = `translate(calc(-50% + ${offX}px), calc(-50% + ${offY}px))`;
+      pR.style.transform = `translate(calc(-50% + ${offX}px), calc(-50% + ${offY}px))`;
     });
 
-    // Simple Gallery Filter
-    function filterProjects(tag) {
-      const cards = document.querySelectorAll('.project-card');
+    // Gallery Filter
+    function filterGallery(category) {
+      const cards = document.querySelectorAll('.item-card');
       const buttons = document.querySelectorAll('.filter-btn');
 
       buttons.forEach(btn => btn.classList.remove('active'));
       event.target.classList.add('active');
 
       cards.forEach(card => {
-        if (tag === 'all' || card.getAttribute('data-category').includes(tag)) {
+        if (category === 'all' || card.getAttribute('data-cat').includes(category)) {
           card.style.display = 'flex';
         } else {
           card.style.display = 'none';
